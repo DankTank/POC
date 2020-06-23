@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firebase External Database Communication</title>
+    <script src="https://use.fontawesome.com/beca3b092d.js"></script>
+    <link rel="stylesheet" href="./libraries/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="./style.css" type="text/css">
+</head>
+
+<body>
+
+    <div class="container mt-5 mb-5">
+        <div class="d-flex justify-content-center row">
+            <div class="col-md-8">
+                <br>
+                <table class="table table-dark">
+                    <thead id="record">
+                        <tr>
+                            <th scope="col">Product Title</th>
+                            <th scope="col">Size</th>
+                            <th scope="col">Color</th>
+                            <th scope="col">Brand</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">QTY</th>
+                        </tr>
+                    </thead>
+                    <tbody id="itemListContainer">
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="col-md-4">
+                <div class="d-fex flexrow  mt-3 p-2 rounded form-container">
+                    <form id="form" method="post" >
+                        <div class="form-group">
+                            <input type="text" name="title" class="form-control border-0" placeholder="Product title" required="required" id="inputProductTitle">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="size" class="form-control border-0" placeholder="Size" required="required" id="inputProductSize">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="color" class="form-control border-0" placeholder="Color" required="required" id="inputProductColor">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="brand" class="form-control border-0" placeholder="Brand" required="required" id="inputProductBrand">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="qty" class="form-control border-0" placeholder="QTY" required="required" id="inputProductQTY">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="price" class="form-control border-0" placeholder="Price" required="required" id="inputProductPrice">
+                        </div>
+                        <p class="text-right">
+                        	<button type="button"  class="btn btn-outline-warning  ml-2" onclick="module_pattern.opslaanInDatabase();">Add new item</button>
+                        </p>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+<script src="https://www.gstatic.com/firebasejs/7.15.4/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.15.4/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.15.4/firebase-analytics.js"></script>
+
+<script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyDhs0tRhyCpMdbG2E96tdcuGsSYsXmFPyI",
+      authDomain: "solidpoc-fa60e.firebaseapp.com",
+      databaseURL: "https://solidpoc-fa60e.firebaseio.com",
+      projectId: "solidpoc-fa60e",
+      storageBucket: "solidpoc-fa60e.appspot.com",
+      messagingSenderId: "183000044270",
+      appId: "1:183000044270:web:e28e9aab5cc59382a399ff",
+      measurementId: "G-KBHZVE6P9L"
+    };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+
+  const db = firebase.firestore();
+</script>
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script type="text/javascript" src="./modular.js"></script>
+
+</body>
+</html>
